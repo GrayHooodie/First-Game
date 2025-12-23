@@ -53,3 +53,4 @@ This currently goes for:
 - `Ctrl+D`
 
 See the full list of non-ascii shortucts that may already be mapped by Godot and thus wouldn't work in `godot-vim` before releasing them in Godot settings: https://github.com/joshnajera/godot-vim/blob/main/addons/godot-vim/godot-vim.gd#L135
+# First-Game
