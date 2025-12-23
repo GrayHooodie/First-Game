@@ -1,7 +1,6 @@
-[gd_scene load_steps=65 format=3 uid="uid://bl4cf0hyyhtbm"]
+[gd_scene load_steps=62 format=3 uid="uid://bl4cf0hyyhtbm"]
 
 [ext_resource type="Texture2D" uid="uid://m0wt1rg5x3dg" path="res://assets/sprites/baurino-sprite-sheet.png" id="1_lj8jo"]
-[ext_resource type="Script" uid="uid://cegnepfkimjep" path="res://scripts/ino-movement.gd" id="2_g2brh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cibgq"]
 atlas = ExtResource("1_lj8jo")
@@ -452,14 +451,6 @@ animations = [{
 "speed": 18.0
 }]
 
-[sub_resource type="Animation" id="Animation_g2brh"]
-resource_name = "idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dn4c7"]
-_data = {
-&"idle": SubResource("Animation_g2brh")
-}
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_lj8jo"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -467,19 +458,10 @@ _data = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -32)
 sprite_frames = SubResource("SpriteFrames_nckey")
-animation = &"loaf"
+animation = &"loafing"
 autoplay = "idle_stnd"
-frame = 12
-script = ExtResource("2_g2brh")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_dn4c7")
-}
+frame_progress = 0.89842767
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_lj8jo")
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

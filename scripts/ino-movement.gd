@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 		if direction == 0:
 			if Input.is_action_pressed("flatten"):
 				animated_sprite.play("loaf")
-				_on_animation_finished("loaf")
 			else:
 				animated_sprite.play("idle_stnd")
 		elif Input.is_action_pressed("run"):
@@ -47,7 +46,3 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-
-func _on_animation_finished(animation: String) -> void:
-	animated_sprite.play(animation + "ing")
